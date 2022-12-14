@@ -1,13 +1,17 @@
-import { Contract, ethers } from "ethers";
-import ExampleContract  from '../../../backend/artifacts/contracts/ExampleContract.sol/ExampleContract.json'
+import { Contract, ethers } from 'ethers'
 
-export default function getContract(contractAddress: string): any {
-  const provider = new ethers.providers.Web3Provider( (window as any).ethereum);
-  const signer = provider.getSigner();
+import { VoteManagerContract } from '../../../backend/typechain'
+import VoteManagerContractJson from '../../../backend/artifacts/contracts/VoteManagerContract.sol/VoteManagerContract.json'
+
+export default function getContract(
+  contractAddress: string
+): VoteManagerContract {
+  const provider = new ethers.providers.Web3Provider((window as any).ethereum)
+  const signer = provider.getSigner()
   const contract = new ethers.Contract(
     contractAddress,
-    ExampleContract.abi,
+    VoteManagerContractJson.abi,
     signer
-  );
-  return contract;
+  )
+  return contract as VoteManagerContract
 }

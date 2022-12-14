@@ -33,13 +33,14 @@ pre: cd into /backend
 ### Frontend
 pre: cd into /frontend
 
-1) Install dependencies ---> npm install
-2) start frontend ---> npm run dev
-3) build --> npm run build
+1) Install dependencies ---> pnpm install
+2) start frontend ---> pnpm run dev
+3) build --> pnpm run build
 
 ### References
 Pnpm (2x faster than npm) https://pnpm.io/installation
 speed up npm install in dev container https://www.youtube.com/watch?v=iDdJWIPRUx4
+Tutorial https://dev.to/xamhans/how-to-create-a-dapp-with-react-solidity-on-ethereum-blockchain-1gg0
 
 
 ### Etc
