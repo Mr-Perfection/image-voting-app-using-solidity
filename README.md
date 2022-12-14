@@ -37,6 +37,11 @@ pre: cd into /frontend
 2) start frontend ---> pnpm run dev
 3) build --> pnpm run build
 
+### Bugs 🐛🐛
+I have not resolved the bug in `getAllCandidates()` function call that it has the correct `candidates.length` but the most recent `candidate` is duplicated.
+<img width="1715" alt="Screenshot 2022-12-14 at 2 38 51 PM" src="https://user-images.githubusercontent.com/10393248/207731148-b402abd6-2bdb-435c-8251-b4344add0aab.png">
+
+
 ### References
 Pnpm (2x faster than npm) https://pnpm.io/installation
 speed up npm install in dev container https://www.youtube.com/watch?v=iDdJWIPRUx4
