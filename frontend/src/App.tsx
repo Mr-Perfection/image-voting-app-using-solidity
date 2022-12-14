@@ -6,7 +6,7 @@ import { Box, Container, Grid, Stack, styled, Typography } from '@mui/material'
 
 import { VoteManagerContract } from '../../backend/typechain'
 import { ipfsService } from '../services/ipfsService'
-// import { CandidateCard } from "./components/CandidateCard";
+import { CandidateCard } from './components/CandidateCard'
 import getContract from './utils/useGetContract'
 
 function App() {
@@ -19,7 +19,8 @@ function App() {
     name: '',
     imageHash: ''
   })
-  const contractAddress = '0x5FbDB2315678afecb367f032d93F642f64180aa3'
+  // This needs to change when the new contract is deployed.
+  const contractAddress = '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512'
 
   useEffect(() => {
     if (contract === undefined) {
@@ -47,12 +48,14 @@ function App() {
   const IPFSUploadHandler = async (): Promise<string> => {
     const resp = await ipfsService.pinFileToIPFS(selectedImage)
     if (!resp.data.IpfsHash) throw Error('no IPFS Hash')
+    console.log('resp is ', resp)
     return `https://gateway.pinata.cloud/ipfs/${resp.data.IpfsHash}`
   }
 
   async function registerCandidate() {
     const name = candidateFormData.name // get the name from formdata
     const ipfsImageHash = await IPFSUploadHandler() // getting the IPFS Image Hash from the Pinata API Service
+    console.log('candidateFormData is', candidateFormData, ipfsImageHash)
 
     contract?.registerCandidate(name, ipfsImageHash) // call the VoteManager registerCandidate Contract Function
   }
@@ -65,18 +68,19 @@ function App() {
   }
 
   async function getAllCandidates() {
-    // const retrievedCandidates = await contract?.fetchCandidates()
-    // const tempArray = []
-    // retrievedCandidates.forEach((candidate) => {
-    //   tempArray.push({
-    //     id: candidate.id,
-    //     name: candidate.name,
-    //     totalVote: candidate.totalVote,
-    //     imageHash: candidate.imageHash,
-    //     candidateAddress: candidate.candidateAddress
-    //   })
-    // })
-    // setCandidates(tempArray)
+    const retrievedCandidates = await contract?.fetchCandidates()
+    const tempArray = []
+    console.log('retrievedCandidates', retrievedCandidates)
+    retrievedCandidates.forEach((candidate) => {
+      tempArray.push({
+        id: candidate.id,
+        name: candidate.name,
+        totalVote: candidate.totalVote,
+        imageHash: candidate.imageHash,
+        candidateAddress: candidate.candidateAddress
+      })
+    })
+    setCandidates(tempArray)
   }
 
   const handleChange = (event: any) => {
@@ -119,6 +123,23 @@ function App() {
           </Stack>
         </Box>
       </Container>
+      {candidates.length > 0 && (
+        <Container sx={{ bgcolor: '#F0F3F7' }}>
+          <Box sx={{ flexGrow: 1, paddingY: '3rem', paddingX: '2rem' }}>
+            <Grid
+              container
+              spacing={{ xs: 2, md: 3 }}
+              columns={{ xs: 4, sm: 8, md: 12 }}
+            >
+              {candidates.map((candidate, index) => (
+                <Grid item sm={4} key={index}>
+                  <CandidateCard candidate={candidate} vote={vote} />
+                </Grid>
+              ))}
+            </Grid>
+          </Box>
+        </Container>
+      )}
     </>
   )
 }

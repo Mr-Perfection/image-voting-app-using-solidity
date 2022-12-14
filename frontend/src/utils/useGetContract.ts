@@ -1,4 +1,4 @@
-import { Contract, ethers } from 'ethers'
+import { ethers } from 'ethers'
 
 import { VoteManagerContract } from '../../../backend/typechain'
 import VoteManagerContractJson from '../../../backend/artifacts/contracts/VoteManagerContract.sol/VoteManagerContract.json'

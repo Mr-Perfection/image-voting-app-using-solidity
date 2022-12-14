@@ -6,6 +6,7 @@ specifiers:
   '@emotion/react': ^11.10.5
   '@emotion/styled': ^11.10.5
   '@heroicons/react': ^1.0.5
+  '@mui/icons-material': ^5.11.0
   '@mui/material': ^5.11.0
   '@tailwindcss/forms': ^0.4.0
   '@typechain/ethers-v5': ^9.0.0
@@ -40,6 +41,7 @@ specifiers:
 dependencies:
   '@emotion/react': 11.10.5_q5o373oqrklnndq2vhekyuzhxi
   '@emotion/styled': 11.10.5_5fe5shuv5xwkc5kpkr6h4jqd6u
+  '@mui/icons-material': 5.11.0_4wpzcs4ftrfl4u5istg7zqtbna
   '@mui/material': 5.11.0_2mete2oe2kozaocyy47tavsz2y
   axios: 1.2.1
   ethers: 5.7.2
@@ -1400,6 +1402,23 @@ packages:
 
   /@mui/core-downloads-tracker/5.11.0:
     resolution: {integrity: sha512-Bmogung451ezVv2YI1RvweOIVsTj2RQ4Fk61+e/+8LFPLTFEwVGbL0YhNy1VB5tri8pzGNV228kxtWVTFooQkg==}
+    dev: false
+
+  /@mui/icons-material/5.11.0_4wpzcs4ftrfl4u5istg7zqtbna:
+    resolution: {integrity: sha512-I2LaOKqO8a0xcLGtIozC9xoXjZAto5G5gh0FYUMAlbsIHNHIjn4Xrw9rvjY20vZonyiGrZNMAlAXYkY6JvhF6A==}
+    engines: {node: '>=12.0.0'}
+    peerDependencies:
+      '@mui/material': ^5.0.0
+      '@types/react': ^17.0.0 || ^18.0.0
+      react: ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.20.6
+      '@mui/material': 5.11.0_2mete2oe2kozaocyy47tavsz2y
+      '@types/react': 17.0.52
+      react: 17.0.2
     dev: false
 
   /@mui/material/5.11.0_2mete2oe2kozaocyy47tavsz2y:
