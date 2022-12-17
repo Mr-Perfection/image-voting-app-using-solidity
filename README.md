@@ -44,7 +44,9 @@ I have not resolved the bug in `getAllCandidates()` function call that it has th
 
 ### References
 Pnpm (2x faster than npm) https://pnpm.io/installation
+
 speed up npm install in dev container https://www.youtube.com/watch?v=iDdJWIPRUx4
+
 Tutorial https://dev.to/xamhans/how-to-create-a-dapp-with-react-solidity-on-ethereum-blockchain-1gg0
 
 
